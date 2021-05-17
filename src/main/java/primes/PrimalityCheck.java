@@ -30,5 +30,25 @@ public class PrimalityCheck {
         }
         return prime;
     }
+    
+    public static boolean isPrime(Number number) throws Exception {
+        int n = number.generateNumber();
+        boolean prime = true; //we assume innitially it is prime
+        if (n<2) // it doesn't make sense to input numbers smaller than 2
+        {
+            throw new Exception();
+        }
+        else{
+            int tryNum=2;
+            while (tryNum<=Math.sqrt(n) && prime==true){ //anything bigger than sqrt(n) is not necessary
+                
+                if (n%tryNum==0) { //if we can find any divisor, this means it is not prime
+                    prime=false;
+                }
+                tryNum++;
+            }
+        }
+        return prime;
+    }
 }
 
